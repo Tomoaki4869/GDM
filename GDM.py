@@ -6,7 +6,7 @@ st.title("いのち 花子 (35)")
 
 # 🔑 APIキーの管理（セッション状態を利用）
 if "OPENAI_API_KEY" not in st.session_state:
-    st.session_state.OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY_GMD", None)
+    st.session_state.OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY_GDM", None)
 
 if not st.session_state.OPENAI_API_KEY:
     key_input = st.text_input("OpenAI APIキーを入力してください", type="password")
@@ -51,3 +51,4 @@ if st.session_state.OPENAI_API_KEY:
         # AI応答の表示
         with st.chat_message("assistant"):
             st.markdown(ai_content)
+
