@@ -8,11 +8,12 @@ st.title("いのち 花子 (35)")
 if "OPENAI_API_KEY" not in st.session_state:
     st.session_state.OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY_GDM", None)
 
+# 入力フォーム
 if not st.session_state.OPENAI_API_KEY:
     key_input = st.text_input("OpenAI APIキーを入力してください", type="password")
     if key_input:
         st.session_state.OPENAI_API_KEY = key_input
-        st.rerun()  # ← 入力後に再実行して入力欄を非表示にする
+        st.rerun()  # ← 入力後にページを再実行してフォームを消す
 
 # APIキーが設定されていれば実行
 if st.session_state.OPENAI_API_KEY:
@@ -51,4 +52,3 @@ if st.session_state.OPENAI_API_KEY:
         # AI応答の表示
         with st.chat_message("assistant"):
             st.markdown(ai_content)
-
